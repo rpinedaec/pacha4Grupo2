@@ -15,7 +15,18 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.urls import include, path
+from rest_framework import routers
+from ecommapp import views
 
+router = routers.DefaultRouter()
+router.register(r'cupones', views.CuponViewSet)
+router.register(r'estado_pedido', views.Estado_PedidoViewSet)
+router.register(r'categorias', views.CategoriaViewSet)
+
+# Wire up our API using automatic URL routing.
+# Additionally, we include login URLs for the browsable API.
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('', include(router.urls)),
+    path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]
