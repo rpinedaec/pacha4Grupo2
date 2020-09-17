@@ -17,9 +17,9 @@
 	 1. BackEnd
 		 - https://github.com/rpinedaec/pacha4Grupo1.git
 		 - Participantes:
-		 	- bruce.porras@PachaQTec.edu.pe
-			- denisse.garcia@PachaQTec.edu.pe
-			- **paola.sanchez@PachaQTec.edu.pe**
+		 	- braulio.berlanga@PachaQTec.edu.pe
+			- fiorella.milla@PachaQTec.edu.pe
+			- **bryan.arias@PachaQTec.edu.pe**
 
 	 2. FrontEnd
 		 - https://github.com/rpinedaec/pacha4Grupo1.git
