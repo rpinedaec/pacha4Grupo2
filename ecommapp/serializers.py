@@ -1,5 +1,5 @@
 from django.contrib.auth.models import User, Group
-from ecommapp.models import cupon, estado_pedido, categoria
+from ecommapp.models import cupon, estado_pedido, categoria, cliente, producto
 from rest_framework import serializers
 
 class CuponSerializer(serializers.HyperlinkedModelSerializer):
@@ -16,3 +16,13 @@ class CategoriaSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = categoria
         fields = '__all__'
+
+class ClienteSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = cliente
+        fields = '__all__'
+
+class ProductoSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = producto
+        fields = producto
