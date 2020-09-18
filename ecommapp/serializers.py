@@ -25,4 +25,4 @@ class ClienteSerializer(serializers.HyperlinkedModelSerializer):
 class ProductoSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = producto
-        fields = producto
+        fields = '__all__'
