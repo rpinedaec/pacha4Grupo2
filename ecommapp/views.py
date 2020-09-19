@@ -1,8 +1,10 @@
 from django.contrib.auth.models import User, Group
-from ecommapp.models import cupon, estado_pedido, categoria, cliente, producto
+from ecommapp.models import cupon, estado_pedido, categoria, cliente, producto, pedido, detalle_pedido
 from rest_framework import viewsets
 from rest_framework import permissions
-from ecommapp.serializers import CuponSerializer, Estado_PedidoSerializer, CategoriaSerializer, ClienteSerializer, ProductoSerializer
+from ecommapp.serializers import CuponSerializer, Estado_PedidoSerializer, CategoriaSerializer, ClienteSerializer, ProductoSerializer, PedidoSerializer, Detalle_PedidoSerializer
+from rest_framework import viewsets
+from rest_framework import permissions
 from rest_framework import filters 
 
 class CuponViewSet(viewsets.ModelViewSet):
@@ -52,3 +54,22 @@ class ProductoViewSet(viewsets.ModelViewSet):
     serializer_class = ProductoSerializer
     permission_classes = [permissions.IsAuthenticated]    
     filter_backends = [filters.SearchFilter]
+class PedidoViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows groups to be viewed or edited.
+    """
+    queryset = pedido.objects.all()
+    serializer_class = PedidoSerializer
+    permission_classes = [permissions.IsAuthenticated]    
+    filter_backends = [filters.SearchFilter]
+    #search_fields = ['descripcion']
+
+class Detalle_pedidoViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows groups to be viewed or edited.
+    """
+    queryset = detalle_pedido.objects.all()
+    serializer_class = Detalle_PedidoSerializer
+    permission_classes = [permissions.IsAuthenticated]    
+    filter_backends = [filters.SearchFilter]
+    #search_fields = ['descripcion']
