@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'drf_yasg',
+    'storages',
     'ecommapp'
     
 ]
@@ -133,6 +134,16 @@ STATIC_URL = "/static/"
 REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE': 5,
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ],
 }
 
 django_heroku.settings(locals())
+
+AWS_MEDIA_STORAGE_BUCKET_NAME = 'djangopacha'
+AWS_MEDIA_S3_REGION_NAME = 'us-east-2'
+AWS_MEDIA_ACCESS_KEY_ID = 'AKIAVQMETGNXQEEZ2TNW'
+AWS_MEDIA_SECRET_ACCESS_KEY = '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'
+AWS_MEDIA_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_MEDIA_STORAGE_BUCKET_NAME
+DEFAULT_FILE_STORAGE = 'ecommprj.custom_storages.MediaStorage'
