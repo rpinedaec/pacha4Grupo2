@@ -3,9 +3,7 @@ from ecommapp.models import cupon, estado_pedido, categoria, cliente, producto, 
 from rest_framework import viewsets
 from rest_framework import permissions
 from ecommapp.serializers import CuponSerializer, Estado_PedidoSerializer, CategoriaSerializer, ClienteSerializer, ProductoSerializer, PedidoSerializer, Detalle_PedidoSerializer
-from rest_framework import viewsets
-from rest_framework import permissions
-from rest_framework import filters 
+from rest_framework import filters
 
 class CuponViewSet(viewsets.ModelViewSet):
     """
@@ -15,7 +13,7 @@ class CuponViewSet(viewsets.ModelViewSet):
     serializer_class = CuponSerializer
     permission_classes = [permissions.IsAuthenticated]    
     filter_backends = [filters.SearchFilter]
-    #search_fields = ['descripcion']
+    search_fields = ['codigo']
 
 class Estado_PedidoViewSet(viewsets.ModelViewSet):
     """
@@ -25,7 +23,7 @@ class Estado_PedidoViewSet(viewsets.ModelViewSet):
     serializer_class = Estado_PedidoSerializer
     permission_classes = [permissions.IsAuthenticated]    
     filter_backends = [filters.SearchFilter]
-    #search_fields = ['descripcion']
+    search_fields = ['descripcion']
 
 class CategoriaViewSet(viewsets.ModelViewSet):
     """
@@ -35,7 +33,7 @@ class CategoriaViewSet(viewsets.ModelViewSet):
     serializer_class = CategoriaSerializer
     permission_classes = [permissions.IsAuthenticated]    
     filter_backends = [filters.SearchFilter]
-    #search_fields = ['descripcion']
+    search_fields = ['nombre']
 
 class ClienteViewSet(viewsets.ModelViewSet):
     """
@@ -45,6 +43,7 @@ class ClienteViewSet(viewsets.ModelViewSet):
     serializer_class = ClienteSerializer
     permission_classes = [permissions.IsAuthenticated]    
     filter_backends = [filters.SearchFilter]
+    search_fields = ['nombre']
 
 class ProductoViewSet(viewsets.ModelViewSet):
     """
@@ -54,6 +53,8 @@ class ProductoViewSet(viewsets.ModelViewSet):
     serializer_class = ProductoSerializer
     permission_classes = [permissions.IsAuthenticated]    
     filter_backends = [filters.SearchFilter]
+    search_fields = ['nombre']
+
 class PedidoViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows groups to be viewed or edited.
@@ -62,7 +63,6 @@ class PedidoViewSet(viewsets.ModelViewSet):
     serializer_class = PedidoSerializer
     permission_classes = [permissions.IsAuthenticated]    
     filter_backends = [filters.SearchFilter]
-    #search_fields = ['descripcion']
 
 class Detalle_pedidoViewSet(viewsets.ModelViewSet):
     """
@@ -72,4 +72,3 @@ class Detalle_pedidoViewSet(viewsets.ModelViewSet):
     serializer_class = Detalle_PedidoSerializer
     permission_classes = [permissions.IsAuthenticated]    
     filter_backends = [filters.SearchFilter]
-    #search_fields = ['descripcion']
