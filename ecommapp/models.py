@@ -36,6 +36,7 @@ class producto(models.Model):
     imagen = models.FileField()
     precio = models.DecimalField(max_digits=10,decimal_places=2)
     descuento = models.DecimalField(max_digits=10,decimal_places=2)
+    imagen1 = models.FileField()
     def __str__(self):
         return self.nombre
     
